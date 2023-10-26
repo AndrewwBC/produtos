@@ -4,6 +4,7 @@ package br.edu.fisul.cstsi.pedidos_aulas.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "dependentes")
 public class Dependente {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

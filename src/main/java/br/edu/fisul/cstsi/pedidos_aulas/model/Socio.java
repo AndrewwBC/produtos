@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "socios")
 public class Socio {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +18,9 @@ public class Socio {
     private String tel_socio;
     private String email_socio;
     // pq deve ter um constructor vazio??
-    @OneToMany
+    @OneToMany(mappedBy = "socio")
     private List<Dependente> dependentes = new ArrayList<>();
-    @OneToMany
+    @OneToMany(mappedBy = "socio")
     private List<Mensalidade> mensalidades = new ArrayList<>();
     @ManyToOne
     private Categoria categoria;
