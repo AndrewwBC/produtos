@@ -8,6 +8,7 @@ public class PedidosApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(PedidosApplication.class, args);
+        HomeController.main(null);
     }
 
 }

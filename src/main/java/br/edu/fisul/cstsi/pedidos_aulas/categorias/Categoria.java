@@ -1,10 +1,10 @@
-package categorias;
+package br.edu.fisul.cstsi.pedidos_aulas.categorias;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import socios.SocioCrud;
+import br.edu.fisul.cstsi.pedidos_aulas.socios.Socio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoriaCrud {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +23,6 @@ public class CategoriaCrud {
     private String desc_cat;
 
     @OneToMany(mappedBy = "categoria")
-    private List<SocioCrud> socio = new ArrayList<>();
+    private List<Socio> socio = new ArrayList<>();
 
 }

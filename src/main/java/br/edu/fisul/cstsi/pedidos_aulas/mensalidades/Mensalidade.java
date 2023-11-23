@@ -1,12 +1,19 @@
-package br.edu.fisul.cstsi.pedidos_aulas.model;
+package br.edu.fisul.cstsi.pedidos_aulas.mensalidades;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import br.edu.fisul.cstsi.pedidos_aulas.socios.Socio;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "mensalidades")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Mensalidade {
 
     @Id
@@ -18,6 +25,8 @@ public class Mensalidade {
     private BigDecimal juros_mens;
     private BigDecimal valor_pago;
     private  Boolean quit_mens;
+
+
     @ManyToOne
     private Socio socio;
 

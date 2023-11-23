@@ -1,18 +1,18 @@
-package dependentes;
+package br.edu.fisul.cstsi.pedidos_aulas.dependentes;
 
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import socios.SocioCrud;
+import br.edu.fisul.cstsi.pedidos_aulas.socios.Socio;
 
 @Entity
 @Table(name = "dependentes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DependenteCrud {
+public class Dependente {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,9 +23,9 @@ public class DependenteCrud {
     private String email_dep;
 
     @ManyToOne
-    private SocioCrud socio;
+    private Socio socio;
 
-    public DependenteCrud(Long id, Long cartao_dep, String nome_dep, String parentesco, String email_dep) {
+    public Dependente(Long id, Long cartao_dep, String nome_dep, String parentesco, String email_dep) {
         this.id = id;
         this.cartao_dep = cartao_dep;
         this.nome_dep = nome_dep;
