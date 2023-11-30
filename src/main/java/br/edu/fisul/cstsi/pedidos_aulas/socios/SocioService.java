@@ -37,8 +37,38 @@ public class SocioService {
         return optional.map(Socio::getNome_socio).orElse(null);
     }
 
+    public List<Socio> getSocioByName(String nome) {
+        List<Socio> optional = rep.findSociosByNome_socio(nome + "%");
+
+        if(!optional.isEmpty()) {
+            return optional;
+        }
+        return null;
+    }
+
     public void deleteSocio(Socio socio) {
         rep.delete(socio);
+    }
+
+
+    public Socio update(Socio socio) {
+        Assert.notNull(socio.getId(),"Não foi possível atualizar o registro");
+
+        Optional<Socio> optional = rep.findById(socio.getId());
+
+       if(optional.isPresent()) {
+            Socio db = optional.get();
+
+            db.setNome_socio(socio.getNome_socio());
+            db.setCartao_socio(socio.getCartao_socio());
+            db.setEmail_socio(socio.getEmail_socio());
+            db.setTel_socio(socio.getTel_socio());
+            db.setEnd_socio(socio.getEnd_socio());
+            rep.save(db);
+            return db;
+       } else {
+            return null;
+       }
     }
 
 }
